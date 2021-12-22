@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Title = styled.h2`
   font-size: 1rem;
@@ -7,15 +7,14 @@ export const Title = styled.h2`
 
 export const List = styled.ul`
   list-style-type: none;
-  padding: 0; 
+  padding: 0;
   margin: 0;
 `
 
-export const ListItem = styled.li`
-  padding-left: 1.2rem;
-`
+export const ListItem = styled.li``
 
 export const ItemLink = styled.a`
-  display: block;  
+  display: block;
   padding: 0.25rem 0;
+  font-size: 0.9rem;
 `

@@ -6,10 +6,10 @@ const Channel = () => {
   const { channel } = router.query
 
   if (typeof channel !== 'string') {
-   return null;
+    return null
   }
 
-  return <ChannelLayout  channel={channel}/>
+  return <ChannelLayout channel={channel} />
 }
 
 export default Channel

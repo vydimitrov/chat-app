@@ -1,14 +1,27 @@
 import Image from 'next/image'
-import { MessageOuter, MessageInner, Avatar, MessageMeta, UserName, DateTime, Text } from './styles'
+import {
+  MessageOuter,
+  MessageInner,
+  Avatar,
+  MessageMeta,
+  UserName,
+  DateTime,
+  Text,
+} from './styles'
 
 type Props = {
-  userName: string;
-  userAvatar: string;
-  date: string;
-  message: string;
+  userName: string
+  userAvatar: string
+  date: string
+  message: string
 }
 
-export const Message: React.FC<Props> = ({ userName, userAvatar, date, message }) => {
+export const Message: React.FC<Props> = ({
+  userName,
+  userAvatar,
+  date,
+  message,
+}) => {
   return (
     <MessageOuter>
       <Avatar>

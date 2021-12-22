@@ -1,5 +1,10 @@
-import styled from 'styled-components';
-import { primaryColor, getBorder, borderRadius, transitionTime } from '../../shared/styles'
+import styled from 'styled-components'
+import {
+  primaryColor,
+  getBorder,
+  borderRadius,
+  transitionTime,
+} from '../../shared/styles'
 
 export const FormInner = styled.div`
   position: relative;
@@ -9,8 +14,9 @@ export const FormInner = styled.div`
   border-radius: ${borderRadius};
   transition: border ${transitionTime};
 
-  &:hover, &:focus {
-    border: ${getBorder(primaryColor)}
+  &:hover,
+  &:focus {
+    border: ${getBorder(primaryColor)};
   }
 `
 
