@@ -5,7 +5,15 @@ export type Avatar =
   | 'avatar-4.png'
 
 export type User = {
-  userName: string
+  name: string
   avatar: Avatar
   channels: string[]
+}
+
+export type MessageType = {
+  id: number
+  name: string
+  avatar: Avatar
+  message: string
+  date: string
 }

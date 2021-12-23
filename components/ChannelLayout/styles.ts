@@ -29,7 +29,8 @@ export const Header = styled.header`
 
 export const Main = styled.main`
   grid-area: main;
-  padding: 1rem;
+  height: 100%;
+  overflow: hidden;
 `
 export const Title = styled.h1`
   font-size: 1.4rem;
@@ -40,5 +41,5 @@ export const Title = styled.h1`
 
 export const Footer = styled.footer`
   grid-area: footer;
-  padding: 0 1rem 1rem;
+  padding: 1rem;
 `

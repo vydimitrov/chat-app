@@ -1,12 +1,25 @@
+import { useState } from 'react'
 import { FormInner, Input, SendButton } from './styles'
 import { Send } from '../../icons/Send'
 import { primaryColor } from '../../shared/styles'
 
-export const MessageForm: React.FC = () => {
+type Props = {
+  onSubmit: (value: string) => void
+}
+
+export const MessageForm: React.FC<Props> = ({ onSubmit }) => {
+  const [value, setValue] = useState<string>('')
+
   return (
-    <form>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault()
+        onSubmit(value)
+        setValue('')
+      }}
+    >
       <FormInner>
-        <Input contentEditable />
+        <Input value={value} onChange={(e) => setValue(e.target.value)} />
         <SendButton type="submit">
           <Send color={primaryColor} />
         </SendButton>

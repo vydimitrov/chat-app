@@ -1,25 +1,52 @@
-import { List, ListItem } from './styles'
+import { useEffect, useState, useRef } from 'react'
+import { flushSync } from 'react-dom'
+import { List, ListItem, ListOuter } from './styles'
 import { Message } from '../Message'
+import { Socket } from '../../hooks/useSocket'
+import type { MessageType } from '../../types'
 
-export const MessageList = () => {
+type Props = {
+  socket: Socket | null
+}
+
+export const MessageList: React.FC<Props> = ({ socket }) => {
+  const listRef = useRef<HTMLUListElement>(null)
+  const [messages, setMessages] = useState<MessageType[]>([])
+
+  useEffect(() => {
+    socket?.on('initial-messages', (data) => {
+      setMessages(data)
+    })
+
+    socket?.on('chat-message', (data) => {
+      flushSync(() => {
+        setMessages((prev) => [data, ...prev])
+      })
+
+      // scroll to the newest added message
+      const lastMessage = listRef.current?.firstElementChild
+      lastMessage?.scrollIntoView({
+        block: 'end',
+        inline: 'nearest',
+        behavior: 'smooth',
+      })
+    })
+  }, [socket])
+
   return (
-    <List>
-      <ListItem>
-        <Message
-          userName="Vasil Dimitrov"
-          userAvatar="avatar-3.png"
-          message="hello"
-          date={new Date().toISOString()}
-        />
-      </ListItem>
-      <ListItem>
-        <Message
-          userName="Boryana Dimitrova"
-          userAvatar="avatar-1.png"
-          message="I want to do it"
-          date={new Date().toISOString()}
-        />
-      </ListItem>
-    </List>
+    <ListOuter>
+      <List ref={listRef}>
+        {messages.map((message) => (
+          <ListItem key={message.id}>
+            <Message
+              name={message.name}
+              avatar={message.avatar}
+              message={message.message}
+              date={message.date}
+            />
+          </ListItem>
+        ))}
+      </List>
+    </ListOuter>
   )
 }
