@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { borderRadius } from '../../shared/styles'
+import { borderRadius, darkGrey } from '../../shared/styles'
 
 export const MessageOuter = styled.div`
   display: flex;
@@ -28,7 +28,7 @@ export const UserName = styled.strong``
 
 export const DateTime = styled.div`
   padding-left: 0.25rem;
-  color: #aaa;
+  color: ${darkGrey};
 `
 
 export const Text = styled.p`

@@ -5,14 +5,6 @@ export const Title = styled.h2`
   margin: 0.3rem 0 0.25rem;
 `
 
-export const List = styled.ul`
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-`
-
-export const ListItem = styled.li``
-
 export const ItemLink = styled.a`
   display: block;
   padding: 0.25rem 0;
