@@ -1,20 +1,20 @@
 import Link from 'next/link'
-import { Title, List, ListItem, ItemLink } from './styles'
+import { Title, ItemLink } from './styles'
 
 export const ChannelList = () => {
   return (
     <>
       <Title>Channels</Title>
-      <List>
-        <ListItem>
+      <ul>
+        <li>
           <Link href="/channels/marketing" passHref>
             <ItemLink>#marketing</ItemLink>
           </Link>
           <Link href="/channels/programming" passHref>
             <ItemLink>#programming</ItemLink>
           </Link>
-        </ListItem>
-      </List>
+        </li>
+      </ul>
     </>
   )
 }
