@@ -1,20 +1,28 @@
 import Link from 'next/link'
+import { useCurrentUser } from '../../hooks/useCurrentUser'
 import { Title, ItemLink } from './styles'
 
-export const ChannelList = () => {
+type Props = {
+  activeChannel: string
+}
+
+export const ChannelList: React.FC<Props> = ({ activeChannel }) => {
+  const { user } = useCurrentUser()
+
   return (
-    <>
+    <div>
       <Title>Channels</Title>
       <ul>
-        <li>
-          <Link href="/channels/marketing" passHref>
-            <ItemLink>#marketing</ItemLink>
-          </Link>
-          <Link href="/channels/programming" passHref>
-            <ItemLink>#programming</ItemLink>
-          </Link>
-        </li>
+        {user?.channels.map((channel) => (
+          <li key={channel}>
+            <Link href={`/channels/${channel}`} passHref>
+              <ItemLink isSelected={activeChannel === channel}>
+                #{channel}
+              </ItemLink>
+            </Link>
+          </li>
+        ))}
       </ul>
-    </>
+    </div>
   )
 }
