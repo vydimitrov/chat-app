@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from 'react'
 import { flushSync } from 'react-dom'
+import { Message } from 'components/Message'
+import { Socket } from 'hooks/useSocket'
+import type { MessageType } from 'shared/types'
 import { List, ListItem, ListOuter } from './styles'
-import { Message } from '../Message'
-import { Socket } from '../../hooks/useSocket'
-import type { MessageType } from '../../types'
 
 type Props = {
   socket: Socket | null

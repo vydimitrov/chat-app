@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useCurrentUser } from '../../hooks/useCurrentUser'
+import { useCurrentUser } from 'hooks/useCurrentUser'
 import { Title, ItemLink } from './styles'
 
 type Props = {

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import type { NextPage } from 'next'
-import { ChannelLayout } from '../../components/ChannelLayout'
-import { useCurrentUser } from '../../hooks/useCurrentUser'
+import { ChannelLayout } from 'components/ChannelLayout'
+import { useCurrentUser } from 'hooks/useCurrentUser'
 
 const Channel: NextPage = () => {
   const router = useRouter()

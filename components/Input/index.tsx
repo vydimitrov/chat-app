@@ -1,4 +1,4 @@
-import { InputElement, Label, LabelText } from './styles'
+import { InputElement } from './styles'
 
 type Props = {
   onChange: (value: string) => void

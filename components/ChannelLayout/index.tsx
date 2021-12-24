@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
+import { MessageForm } from 'components/MessageForm'
+import { ChannelList } from 'components/ChannelList'
+import { ChannelNameForm } from 'components/ChannelNameForm'
+import { MessageList } from 'components/MessageList'
+import { useSocket } from 'hooks/useSocket'
+import { useCurrentUser } from 'hooks/useCurrentUser'
 import { Layout, Aside, Header, Main, Title, Footer } from './styles'
-import { MessageForm } from '../MessageForm'
-import { ChannelList } from '../ChannelList'
-import { ChannelNameForm } from '../ChannelNameForm'
-import { MessageList } from '../MessageList'
-import { useSocket } from '../../hooks/useSocket'
-import { useCurrentUser } from '../../hooks/useCurrentUser'
 
 type Props = {
   channel: string

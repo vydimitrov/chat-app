@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { borderRadius, getBorder, primaryColor } from '../../shared/styles'
+import { borderRadius, getBorder, primaryColor } from 'shared/styles'
 
 type AvatarProps = {
   isSelected: boolean

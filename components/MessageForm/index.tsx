@@ -1,7 +1,7 @@
 import { useState } from 'react'
+import { Send } from 'icons/Send'
+import { primaryColor } from 'shared/styles'
 import { FormInner, Input, SendButton } from './styles'
-import { Send } from '../../icons/Send'
-import { primaryColor } from '../../shared/styles'
 
 type Props = {
   onSubmit: (value: string) => void

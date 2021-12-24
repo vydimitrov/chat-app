@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { isSSR } from '../shared/utils'
+import { isSSR } from 'shared/utils'
 
 type KeyValuePair<TKey, TValue> = { key: TKey; value: TValue }
 

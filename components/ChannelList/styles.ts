@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { secondaryColor } from '../../shared/styles'
+import { secondaryColor, transitionTime } from 'shared/styles'
 
 type ItemLinkProps = {
   isSelected: boolean
@@ -15,4 +15,5 @@ export const ItemLink = styled.a<ItemLinkProps>`
   padding: 0.25rem 0;
   font-size: 0.9rem;
   color: ${({ isSelected }) => (isSelected ? secondaryColor : 'white')};
+  transition: color ${transitionTime};
 `

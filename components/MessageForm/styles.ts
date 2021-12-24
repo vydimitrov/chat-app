@@ -4,7 +4,7 @@ import {
   getBorder,
   borderRadius,
   transitionTime,
-} from '../../shared/styles'
+} from 'shared/styles'
 
 export const FormInner = styled.div`
   position: relative;

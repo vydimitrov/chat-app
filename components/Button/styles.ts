@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { borderRadius, primaryColor, secondaryColor } from '../../shared/styles'
-import { Props } from './types'
+import { borderRadius, primaryColor, secondaryColor } from 'shared/styles'
+import type { Props } from './types'
 
 export const ButtonElement = styled.button<Props>`
   width: 100%;
