@@ -13,6 +13,7 @@ export const FormInner = styled.div`
   border: ${getBorder()};
   border-radius: ${borderRadius};
   transition: border ${transitionTime};
+  overflow: hidden;
 
   &:hover,
   &:focus {

@@ -30,20 +30,20 @@ export const LoginForm = () => {
     <LoginOuter>
       <form onSubmit={handleSubmit}>
         <InputsWrapper>
-          <Label label="Channel name">
-            <Input
-              value={channelName}
-              placeholder="Create or join channel name"
-              required
-              onChange={(value) => setChannelName(modifyChannelName(value))}
-            />
-          </Label>
           <Label label="User name">
             <Input
               value={name}
               onChange={setName}
               placeholder="Add user name"
               required
+            />
+          </Label>
+          <Label label="Channel name">
+            <Input
+              value={channelName}
+              placeholder="Create or join channel name"
+              required
+              onChange={(value) => setChannelName(modifyChannelName(value))}
             />
           </Label>
           <Label label="Avatar">
