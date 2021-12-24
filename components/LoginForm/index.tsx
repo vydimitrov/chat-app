@@ -13,14 +13,14 @@ export const LoginForm = () => {
   const router = useRouter()
   const [, setCurrentUser] = useCurrentUser()
   const [channelName, setChannelName] = useState<string>()
-  const [userName, setUserName] = useState<string>()
+  const [name, setName] = useState<string>()
   const [avatar, setAvatar] = useState<Avatar>(avatars[0])
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault()
 
-    if (userName && avatar && channelName) {
-      setCurrentUser({ userName, avatar, channels: [channelName] })
+    if (name && avatar && channelName) {
+      setCurrentUser({ name, avatar, channels: [channelName] })
       router.push(`/channels/${channelName}`)
     }
   }
@@ -39,8 +39,8 @@ export const LoginForm = () => {
           </Label>
           <Label label="User name">
             <Input
-              value={userName}
-              onChange={setUserName}
+              value={name}
+              onChange={setName}
               placeholder="Add user name"
               required
             />

@@ -1,10 +1,9 @@
 import { useState, useCallback } from 'react'
 import { useRouter } from 'next/router'
 import type { User } from '../types'
+import { isSSR } from '../shared/utils'
 
 const userKey = 'chat-app-user'
-
-const isSSR = typeof window === 'undefined'
 
 // The user data should came from an API call to pull it from the server
 // For this prototype we save it just in localStorage and use it from there

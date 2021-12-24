@@ -20,11 +20,12 @@ export const FormInner = styled.div`
   }
 `
 
-export const Input = styled.div`
+export const Input = styled.input`
   width: 100%;
-  min-height: 4rem;
+  min-height: 2.4rem;
   padding: 0.5rem 3rem 0.5rem 0.5rem;
   outline: none;
+  border: none;
 `
 
 export const SendButton = styled.button`

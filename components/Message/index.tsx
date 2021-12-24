@@ -10,31 +10,26 @@ import {
 } from './styles'
 
 type Props = {
-  userName: string
-  userAvatar: string
+  name: string
+  avatar: string
   date: string
   message: string
 }
 
-export const Message: React.FC<Props> = ({
-  userName,
-  userAvatar,
-  date,
-  message,
-}) => {
+export const Message: React.FC<Props> = ({ name, avatar, date, message }) => {
   return (
     <MessageOuter>
       <Avatar>
         <Image
-          src={`/${userAvatar}`}
-          alt={`${userName} Avatar`}
+          src={`/${avatar}`}
+          alt={`${name} Avatar`}
           width={36}
           height={36}
         />
       </Avatar>
       <MessageInner>
         <MessageMeta>
-          <UserName>{userName}</UserName>
+          <UserName>{name}</UserName>
           <DateTime>{new Date(date).toLocaleString()}</DateTime>
         </MessageMeta>
         <Text>{message}</Text>
