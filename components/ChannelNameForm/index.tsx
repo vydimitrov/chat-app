@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import { Input } from '../Input'
-import { Button } from '../Button'
-import { useCurrentUser } from '../../hooks/useCurrentUser'
-import { modifyChannelName } from '../../shared/utils'
+import { Input } from 'components/Input'
+import { Button } from 'components/Button'
+import { useCurrentUser } from 'hooks/useCurrentUser'
+import { modifyChannelName } from 'shared/utils'
 import { InputWrapper } from './styles'
 
 export const ChannelNameForm = () => {

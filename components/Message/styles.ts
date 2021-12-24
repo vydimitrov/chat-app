@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { borderRadius, darkGrey } from '../../shared/styles'
+import { borderRadius, darkGrey } from 'shared/styles'
 
 export const MessageOuter = styled.div`
   display: flex;

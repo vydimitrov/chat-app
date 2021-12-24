@@ -6,7 +6,7 @@ import {
   grey,
   primaryColor,
   transitionTime,
-} from '../../shared/styles'
+} from 'shared/styles'
 
 export const InputElement = styled.input`
   width: 100%;

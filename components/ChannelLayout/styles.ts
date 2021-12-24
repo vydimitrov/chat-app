@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { primaryColor, getBorder } from '../../shared/styles'
+import { primaryColor, getBorder } from 'shared/styles'
 
 export const Layout = styled.div`
   display: grid;

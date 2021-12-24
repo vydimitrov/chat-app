@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { darkGrey } from '../../shared/styles'
+import { darkGrey } from 'shared/styles'
 
 export const LabelElement = styled.label`
   display: block;

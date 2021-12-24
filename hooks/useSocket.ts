@@ -8,6 +8,8 @@ export const useSocket = (namespace: string) => {
 
   useEffect(() => {
     const socketRef = io(`/${namespace}`)
+
+    // Handle errors from the web socket here
     socketRef.on('error', () => {
       router.push('/error')
     })
