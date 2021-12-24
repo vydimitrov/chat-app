@@ -6,7 +6,7 @@ import { useCurrentUser } from '../../hooks/useCurrentUser'
 
 const Channel: NextPage = () => {
   const router = useRouter()
-  const [user] = useCurrentUser()
+  const { user } = useCurrentUser()
   const { channel } = router.query
 
   if (typeof channel !== 'string') {

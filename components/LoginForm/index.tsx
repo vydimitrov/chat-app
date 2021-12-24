@@ -7,13 +7,14 @@ import { AvatarPicker } from '../AvatarPicker'
 import type { Avatar } from '../../types'
 import { avatars } from '../../shared/const'
 import { useCurrentUser } from '../../hooks/useCurrentUser'
+import { modifyChannelName } from '../../shared/utils'
 import { LoginOuter, InputsWrapper } from './styles'
 
 export const LoginForm = () => {
   const router = useRouter()
-  const [, setCurrentUser] = useCurrentUser()
-  const [channelName, setChannelName] = useState<string>()
-  const [name, setName] = useState<string>()
+  const { setCurrentUser } = useCurrentUser()
+  const [channelName, setChannelName] = useState<string>('')
+  const [name, setName] = useState<string>('')
   const [avatar, setAvatar] = useState<Avatar>(avatars[0])
 
   const handleSubmit = (e: React.SyntheticEvent) => {
@@ -34,7 +35,7 @@ export const LoginForm = () => {
               value={channelName}
               placeholder="Create or join channel name"
               required
-              onChange={(value) => setChannelName(value.replace(' ', '-'))}
+              onChange={(value) => setChannelName(modifyChannelName(value))}
             />
           </Label>
           <Label label="User name">
