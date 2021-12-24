@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import type { NextPage } from 'next'
-import { isSSR } from '../../shared/utils'
 import { ChannelLayout } from '../../components/ChannelLayout'
 import { useCurrentUser } from '../../hooks/useCurrentUser'
 
@@ -9,12 +8,15 @@ const Channel: NextPage = () => {
   const { user } = useCurrentUser()
   const { channel } = router.query
 
+  // Wait until the channel is set
   if (typeof channel !== 'string') {
     return null
   }
 
-  if (!isSSR && !user) {
+  // Redirect to login page is no user
+  if (!user) {
     router.push('/')
+    return null
   }
 
   return <ChannelLayout channel={channel} />
