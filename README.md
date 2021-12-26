@@ -17,6 +17,12 @@ This is a simple chat app prototype built with NextJs and Socket.io deployed to 
 - styled-components - to style component using CSS-IN-JSS
 - Express - custom dev server for NextJs with Express. The web socket connection requires a DEV server so the connection can stay open
 
+## Local Development
+
+- Clone the repo
+- Install dependencies
+- run `yarn dev` and navigate to `localhost:3000`
+
 ## Possible Improvements
 
 - Better design and mobile design
