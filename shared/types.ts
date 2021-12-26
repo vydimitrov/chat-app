@@ -10,10 +10,11 @@ export type User = {
   channels: string[]
 }
 
-export type MessageType = {
-  id: number
+export type Message = {
+  id: string
   name: string
   avatar: Avatar
   message: string
   date: string
+  channel: string
 }

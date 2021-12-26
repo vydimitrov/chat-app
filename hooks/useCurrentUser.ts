@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import type { User } from 'types'
+import type { User } from 'shared/types'
 import { useLocalStorage } from './useLocalStorage'
 
 const userKey = 'chat-app-user'

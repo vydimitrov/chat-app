@@ -1,13 +1,16 @@
 import styled from 'styled-components'
-import { primaryColor, getBorder } from 'shared/styles'
+import { primaryColor, getBorder, transitionTime } from 'shared/styles'
+
+type Props = {
+  isThreadOpen: boolean
+}
 
 export const Layout = styled.div`
   display: grid;
   grid-template-areas:
     'aside header'
-    'aside main'
-    'aside footer';
-  grid-template-rows: auto 1fr auto;
+    'aside main';
+  grid-template-rows: auto 1fr;
   grid-template-columns: 260px 1fr;
   grid-row-gap: 0;
   grid-column-gap: 0;
@@ -33,9 +36,11 @@ export const Header = styled.header`
 
 export const Main = styled.main`
   grid-area: main;
+  display: flex;
   height: 100%;
   overflow: hidden;
 `
+
 export const Title = styled.h1`
   font-size: 1.4rem;
   font-weight: bold;
@@ -43,7 +48,25 @@ export const Title = styled.h1`
   color: ${primaryColor};
 `
 
-export const Footer = styled.footer`
-  grid-area: footer;
-  padding: 1rem;
+export const MessagesArea = styled.div<Props>`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: ${({ isThreadOpen }) =>
+    isThreadOpen ? 'calc(100% - 300px)' : '100%'};
+  transition: width ${transitionTime};
+  border-right: ${({ isThreadOpen }) =>
+    isThreadOpen ? '1px solid #ccc' : '0'};
+`
+
+export const MessageContainerOuter = styled.div`
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow: auto;
+`
+
+export const MessageFormOuter = styled.div`
+  flex: 0 0 auto;
+  padding: 0.5rem 1rem 1rem;
 `
