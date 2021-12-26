@@ -29,6 +29,7 @@ The app can be tested here - https://vydimitrov-chat-app.herokuapp.com
 
 ## Possible Improvements
 
+- Add unit tests and end-to-end tests
 - Better design and mobile design
 - Better error and loading state handling
 - Optimistic updates
