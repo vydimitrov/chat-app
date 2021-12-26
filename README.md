@@ -1,21 +1,25 @@
 # Chat App Prototype
 
-This is a simple chat app prototype built with NextJs and Socket.io deployed to Heroku.
+This is a simple chat app prototype built with NextJs and Socket.io deployed to Heroku. The design of the app is heavily inspired by [Slack](https://slack.com/).
+
+## Demo
+
+The app can be tested here - https://vydimitrov-chat-app.herokuapp.com
 
 ## Features
 
-- Create and save user
+- Create and save user to local storage
 - Realtime updates using web socket
 - Create, add and join multiple channels
-- Message auto-scroll to the newest messages
-- Message thread with an update of the replays count
+- Message auto-scroll to the newest message
+- Message thread with an update of the replies count
 
-## Technologies Used
+## Technologies
 
-- NextJS - to quickly spin up a new project and handle routing for the app
-- Socket.io - web socket connection for real time updates
-- styled-components - to style component using CSS-IN-JSS
-- Express - custom dev server for NextJs with Express. The web socket connection requires a DEV server so the connection can stay open
+- NextJS - to quickly spin up the new project and handle routing for the app
+- Socket.io - web socket connection for realtime updates
+- styled-components - to style components using CSS-in-JS
+- Express - custom DEV server for NextJs with Express. The web socket connection requires a DEV server so the connection can stay open.
 
 ## Local Development
 
