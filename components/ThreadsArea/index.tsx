@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import { ThreadListContainer } from 'components/ThreadListContainer'
 import { MessageForm } from 'components/MessageForm'
 import { useSocket } from 'hooks/useSocket'
@@ -16,10 +15,10 @@ import {
 type Props = {
   thread: string
   channel: string
+  onClose: () => void
 }
 
-export const ThreadsArea: React.FC<Props> = ({ thread, channel }) => {
-  const router = useRouter()
+export const ThreadsArea: React.FC<Props> = ({ thread, channel, onClose }) => {
   const { user } = useCurrentUser()
   const socket = useSocket(`thread/${thread}`)
 
@@ -30,7 +29,7 @@ export const ThreadsArea: React.FC<Props> = ({ thread, channel }) => {
 
   return (
     <AreaOuter>
-      <CloseIcon onClick={() => router.push(`/channels/${channel}`)}>
+      <CloseIcon onClick={() => onClose()}>
         <Close color={grey} />
       </CloseIcon>
       <Heading>Thread</Heading>
