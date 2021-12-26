@@ -14,7 +14,8 @@ export type Message = {
   id: string
   name: string
   avatar: Avatar
-  message: string
+  body: string
   date: string
   channel: string
+  replays: number
 }

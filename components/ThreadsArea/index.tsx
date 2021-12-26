@@ -23,9 +23,9 @@ export const ThreadsArea: React.FC<Props> = ({ thread, channel }) => {
   const { user } = useCurrentUser()
   const socket = useSocket(`thread/${thread}`)
 
-  const handleSubmit = (message: string) => {
+  const handleSubmit = (body: string) => {
     const { name, avatar } = user
-    socket?.emit('thread-message', { name, avatar, message })
+    socket?.emit('thread-message', { name, avatar, body })
   }
 
   return (
