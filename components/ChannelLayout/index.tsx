@@ -1,19 +1,30 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { MessageForm } from 'components/MessageForm'
-import { ChannelList } from 'components/ChannelList'
+import { ChannelNameList } from 'components/ChannelNameList'
 import { ChannelNameForm } from 'components/ChannelNameForm'
-import { MessageList } from 'components/MessageList'
+import { MessageListContainer } from 'components/MessageListContainer'
+import { ThreadsArea } from 'components/ThreadsArea'
 import { useSocket } from 'hooks/useSocket'
 import { useCurrentUser } from 'hooks/useCurrentUser'
-import { Layout, Aside, Header, Main, Title, Footer } from './styles'
+import {
+  Layout,
+  Aside,
+  Header,
+  Main,
+  Title,
+  MessagesArea,
+  MessageContainerOuter,
+  MessageFormOuter,
+} from './styles'
 
 type Props = {
   channel: string
 }
 
 export const ChannelLayout: React.FC<Props> = ({ channel }) => {
+  const [thread, setThread] = useState<string>()
   const { user, addChannel } = useCurrentUser()
-  const socket = useSocket(channel)
+  const socket = useSocket(`channel/${channel}`)
 
   const handleSubmit = (message: string) => {
     const { name, avatar } = user
@@ -23,7 +34,7 @@ export const ChannelLayout: React.FC<Props> = ({ channel }) => {
   useEffect(() => {
     // Add chanel in case a user joins a new channel
     const hasChannel = user.channels.some(
-      (userChannel) => userChannel === channel
+      (userChannel: string) => userChannel === channel
     )
     if (!hasChannel) {
       addChannel(channel)
@@ -33,18 +44,23 @@ export const ChannelLayout: React.FC<Props> = ({ channel }) => {
   return (
     <Layout>
       <Aside>
-        <ChannelList activeChannel={channel} />
+        <ChannelNameList activeChannel={channel} />
         <ChannelNameForm />
       </Aside>
       <Header>
         <Title>#{channel}</Title>
       </Header>
       <Main>
-        <MessageList socket={socket} />
+        <MessagesArea isThreadOpen={Boolean(thread)}>
+          <MessageContainerOuter>
+            <MessageListContainer socket={socket} onMessageClick={setThread} />
+          </MessageContainerOuter>
+          <MessageFormOuter>
+            <MessageForm onSubmit={handleSubmit} />
+          </MessageFormOuter>
+        </MessagesArea>
+        {thread && <ThreadsArea thread={thread} channel={channel} />}
       </Main>
-      <Footer>
-        <MessageForm onSubmit={handleSubmit} />
-      </Footer>
     </Layout>
   )
 }

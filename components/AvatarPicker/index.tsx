@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import type { Avatar } from 'types'
+import type { Avatar } from 'shared/types'
 import { avatars } from 'shared/const'
 import { AvatarItem, AvatarWrapper } from './styles'
 

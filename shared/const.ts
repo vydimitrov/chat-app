@@ -1,4 +1,4 @@
-import type { Avatar } from '../types'
+import type { Avatar } from './types'
 
 export const avatars: Avatar[] = [
   'avatar-1.png',
