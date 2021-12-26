@@ -26,6 +26,16 @@ export const MessageListContainer: React.FC<Props> = ({
       setMessages(data)
     })
 
+    socket.on('chat-message-updated', (data) => {
+      setMessages((prevMessages) => {
+        const nextMessages = [...prevMessages]
+        const index = prevMessages.findIndex((msg) => msg.id === data.id)
+        // replace a message with the new one
+        nextMessages.splice(index, 1, data)
+        return nextMessages
+      })
+    })
+
     socket.on('chat-message', (data) => {
       flushSync(() => {
         setMessages((prev) => [data, ...prev])
@@ -43,6 +53,7 @@ export const MessageListContainer: React.FC<Props> = ({
       messages={messages}
       scrollDirection="bottom"
       onMessageClick={onMessageClick}
+      isReplaysVisible
     />
   )
 }

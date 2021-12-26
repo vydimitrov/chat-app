@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import type { Message as MessageType } from 'shared/types'
 import {
   MessageOuter,
   MessageInner,
@@ -7,16 +8,17 @@ import {
   UserName,
   DateTime,
   Text,
+  ReplaysCount,
 } from './styles'
 
 type Props = {
-  name: string
-  avatar: string
-  date: string
-  message: string
+  message: MessageType
+  isReplaysVisible?: boolean
 }
 
-export const Message: React.FC<Props> = ({ name, avatar, date, message }) => {
+export const Message: React.FC<Props> = ({ message, isReplaysVisible }) => {
+  const { avatar, name, body, date, replays } = message
+
   return (
     <MessageOuter>
       <Avatar>
@@ -32,7 +34,8 @@ export const Message: React.FC<Props> = ({ name, avatar, date, message }) => {
           <UserName>{name}</UserName>
           <DateTime>{new Date(date).toLocaleString()}</DateTime>
         </MessageMeta>
-        <Text>{message}</Text>
+        <Text>{body}</Text>
+        {isReplaysVisible && <ReplaysCount>{replays} replays</ReplaysCount>}
       </MessageInner>
     </MessageOuter>
   )

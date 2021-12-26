@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { borderRadius, darkGrey } from 'shared/styles'
+import { borderRadius, darkGrey, grey } from 'shared/styles'
 
 export const MessageOuter = styled.div`
   display: flex;
@@ -33,4 +33,10 @@ export const DateTime = styled.div`
 
 export const Text = styled.p`
   margin: 0;
+`
+
+export const ReplaysCount = styled.p`
+  color: ${grey};
+  margin: 0.25rem 0 0;
+  font-size: 0.75rem;
 `

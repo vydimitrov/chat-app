@@ -26,9 +26,9 @@ export const ChannelLayout: React.FC<Props> = ({ channel }) => {
   const { user, addChannel } = useCurrentUser()
   const socket = useSocket(`channel/${channel}`)
 
-  const handleSubmit = (message: string) => {
+  const handleSubmit = (body: string) => {
     const { name, avatar } = user
-    socket?.emit('chat-message', { name, avatar, message })
+    socket?.emit('chat-message', { name, avatar, body })
   }
 
   useEffect(() => {
