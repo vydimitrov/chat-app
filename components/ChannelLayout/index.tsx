@@ -41,6 +41,11 @@ export const ChannelLayout: React.FC<Props> = ({ channel }) => {
     }
   }, [user, channel, addChannel])
 
+  useEffect(() => {
+    // close thread when switching between channels
+    setThread(undefined)
+  }, [channel])
+
   return (
     <Layout>
       <Aside>
@@ -59,7 +64,13 @@ export const ChannelLayout: React.FC<Props> = ({ channel }) => {
             <MessageForm onSubmit={handleSubmit} />
           </MessageFormOuter>
         </MessagesArea>
-        {thread && <ThreadsArea thread={thread} channel={channel} />}
+        {thread && (
+          <ThreadsArea
+            thread={thread}
+            channel={channel}
+            onClose={() => setThread(undefined)}
+          />
+        )}
       </Main>
     </Layout>
   )
