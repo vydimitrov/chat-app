@@ -36,7 +36,7 @@ channelsWorkspace.on('connection', (socket) => {
 
   socket.on(CHAT_MESSAGE, (message) => {
     const date = new Date().toISOString()
-    const data = { ...message, id: getId(), date, channel, replays: 0 }
+    const data = { ...message, id: getId(), date, channel, replyCount: 0 }
     messages.push(data)
 
     workspace.emit(CHAT_MESSAGE, data)
@@ -56,11 +56,11 @@ threadsWorkspace.on('connection', (socket) => {
 
   socket.on(THREAD_MESSAGE, (newMessage) => {
     const messageIndex = messages.findIndex((msg) => msg.id === messageId)
-    const replays = messages[messageIndex].replays + 1
+    const replyCount = messages[messageIndex].replyCount + 1
 
-    // Here we update the messages DB with the new count of replays
+    // Here we update the messages DB with the new count of replies
     // and read the updated message
-    messages[messageIndex].replays = replays
+    messages[messageIndex].replyCount = replyCount
     const message = messages[messageIndex]
     channelsWorkspace.emit('chat-message-updated', message)
 

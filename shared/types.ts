@@ -17,5 +17,5 @@ export type Message = {
   body: string
   date: string
   channel: string
-  replays: number
+  replyCount: number
 }

@@ -17,7 +17,7 @@ type Props = {
 }
 
 export const Message: React.FC<Props> = ({ message, isReplaysVisible }) => {
-  const { avatar, name, body, date, replays } = message
+  const { avatar, name, body, date, replyCount } = message
 
   return (
     <MessageOuter>
@@ -35,7 +35,11 @@ export const Message: React.FC<Props> = ({ message, isReplaysVisible }) => {
           <DateTime>{new Date(date).toLocaleString()}</DateTime>
         </MessageMeta>
         <Text>{body}</Text>
-        {isReplaysVisible && <ReplaysCount>{replays} replays</ReplaysCount>}
+        {isReplaysVisible && (
+          <ReplaysCount>
+            {replyCount} {replyCount === 1 ? 'reply' : 'replies'}
+          </ReplaysCount>
+        )}
       </MessageInner>
     </MessageOuter>
   )
