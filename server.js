@@ -36,7 +36,7 @@ channelsWorkspace.on('connection', (socket) => {
 
   socket.on(CHAT_MESSAGE, (message) => {
     const date = new Date().toISOString()
-    const data = { ...message, id: getId(), date }
+    const data = { ...message, id: getId(), date, channel }
     messages.push(data)
 
     workspace.emit(CHAT_MESSAGE, data)
