@@ -53,7 +53,7 @@ export const MessageListContainer: React.FC<Props> = ({
       messages={messages}
       scrollDirection="bottom"
       onMessageClick={onMessageClick}
-      isReplaysVisible
+      isRepliesVisible
     />
   )
 }

@@ -13,7 +13,7 @@ const Channel: NextPage = () => {
     return null
   }
 
-  // Redirect to login page is no user
+  // Redirect to login page if there is no user
   if (!user) {
     router.push('/')
     return null

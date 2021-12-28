@@ -22,7 +22,7 @@ export const ThreadListContainer: React.FC<Props> = ({ socket, channel }) => {
     }
 
     socket.on('initial-thread-messages', (data) => {
-      // check if there is a message fro the thread
+      // check if there is a message for the thread
       if (!data[0]) {
         router.push(`/channels/${channel}`)
       } else {

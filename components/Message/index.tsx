@@ -8,15 +8,15 @@ import {
   UserName,
   DateTime,
   Text,
-  ReplaysCount,
+  RepliesCount,
 } from './styles'
 
 type Props = {
   message: MessageType
-  isReplaysVisible?: boolean
+  isRepliesVisible?: boolean
 }
 
-export const Message: React.FC<Props> = ({ message, isReplaysVisible }) => {
+export const Message: React.FC<Props> = ({ message, isRepliesVisible }) => {
   const { avatar, name, body, date, replyCount } = message
 
   return (
@@ -35,10 +35,10 @@ export const Message: React.FC<Props> = ({ message, isReplaysVisible }) => {
           <DateTime>{new Date(date).toLocaleString()}</DateTime>
         </MessageMeta>
         <Text>{body}</Text>
-        {isReplaysVisible && (
-          <ReplaysCount>
+        {isRepliesVisible && (
+          <RepliesCount>
             {replyCount} {replyCount === 1 ? 'reply' : 'replies'}
-          </ReplaysCount>
+          </RepliesCount>
         )}
       </MessageInner>
     </MessageOuter>

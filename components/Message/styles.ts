@@ -35,7 +35,7 @@ export const Text = styled.p`
   margin: 0;
 `
 
-export const ReplaysCount = styled.p`
+export const RepliesCount = styled.p`
   color: ${grey};
   margin: 0.25rem 0 0;
   font-size: 0.75rem;

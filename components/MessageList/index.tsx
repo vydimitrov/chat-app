@@ -8,12 +8,12 @@ type Props = {
   messages: MessageType[]
   scrollDirection: Direction
   onMessageClick?: (messageId: string) => void
-  isReplaysVisible?: boolean
+  isRepliesVisible?: boolean
 }
 
 export const MessageList = forwardRef<HTMLUListElement, Props>(
   function MessageList(
-    { messages, scrollDirection, onMessageClick, isReplaysVisible },
+    { messages, scrollDirection, onMessageClick, isRepliesVisible },
     ref
   ) {
     return (
@@ -24,7 +24,7 @@ export const MessageList = forwardRef<HTMLUListElement, Props>(
               isClickable={typeof onMessageClick === 'function'}
               onClick={() => onMessageClick?.(message.id)}
             >
-              <Message message={message} isReplaysVisible={isReplaysVisible} />
+              <Message message={message} isRepliesVisible={isRepliesVisible} />
             </Item>
           </ListItem>
         ))}
